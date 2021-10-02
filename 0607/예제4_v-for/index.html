@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>vue js v-for</title>
+  <meta name="description" content="vue js v-for">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <ul id="menu">
+        <li v-for="list in menuList">
+          <a v-bind:href="list.ahref">{{list.menu}}</a>
+        </li>
+        <!-- <li><a href="http://naver.com">naver</a></li>
+        <li><a href="http://daum.net">daum</a></li>
+        <li><a href="http://instagram.com">instagram</a></li>
+        <li><a href="http://facebook.com">facebook</a></li> -->
+      </ul>
+    </header>
+    <main>
+      <div class="container"></div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <h3><a href="#">logo</a></h3>
+        <ul id="f_menu">
+          <li v-for="(list, index) in fMenuList">
+            <a v-if="index == 0" v-bind:href="list.ahref" v-bind:class="active">{{index}}{{list.menu}}</a>
+            <a v-else v-bind:href="list.ahref">{{index}}{{list.menu}}</a>
+          </li>
+          <!-- <li><a href="http://naver.com">company</a></li>
+          <li><a href="http://daum.net">product</a></li>
+          <li><a href="http://facebook.com">gallery</a></li>
+          <li><a href="http://naver.com">notice</a></li>
+          <li><a href="http://naver.com">faq</a></li>
+          <li><a href="http://naver.com">location</a></li> -->
+        </ul>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        active: true,
+        menuList: [
+          {menu:'company',ahref:'http://naver.com'},
+          {menu:'product',ahref:'http://daum.net'},
+          {menu:'gallery',ahref:'http://facebook.com'},
+          {menu:'location',ahref:'http://instagram.com'}
+        ],
+        fMenuList: [
+          {menu:'company',ahref:'http://naver.com'},
+          {menu:'product',ahref:'http://daum.net'},
+          {menu:'gallery',ahref:'http://facebook.com'},
+          {menu:'notice',ahref:'http://instagram.com'},
+          {menu:'faq',ahref:'http://instagram.com'},
+          {menu:'location',ahref:'http://instagram.com'}
+        ]
+      }
+    });
+    // javascript/jquery 반복구문 사용법
+    // for( var i = 0 ; i < 5 ; i++ ){
+    //   console.log(i)
+    // }
+    // $(function(){
+    //   $("#menu li").each(function(i){
+    //     console.log(i)
+    //   });
+    // });
+  </script>
+</body>
+</html>

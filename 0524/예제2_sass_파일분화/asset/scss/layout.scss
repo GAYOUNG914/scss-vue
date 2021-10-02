@@ -1,0 +1,16 @@
+/*layout css*/
+body{
+  background: $primaryColor;
+}
+
+ul{
+  overflow: hidden;
+  li{
+    background: yellow;
+    float: left;
+    a{
+      color: $primaryColor;
+      font-size: $fontSizeSmall;
+    }
+  }
+}

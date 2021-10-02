@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>vue js v-bind</title>
+    <meta name="description" content="vue js lifecycle">
+  </head>
+  <body>
+    <div id="app">
+      <div id="menu" v-bind:class="menuToggle">menu</div>
+      <a v-bind:href="goHome" v-bind:title="title">Go Home!!</a>
+      <input v-bind:type="inputType" v-bind:checked="checked"><!--v-bind를 사용하여 type 속성을 radio로 변경-->
+      <input v-bind:type="inputType2" v-bild:placeholder="placeholder">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      let app = new Vue({
+        el: '#app', //string타입
+        data: {
+          menuToggle: 'active',
+          goHome: 'http://daum.net',
+          title: 'daum',
+          inputType: 'checkbox',
+          checked: true,
+          inputType2: 'text',
+          placeholder: '여기에 입력'
+        }
+      })
+    </script>
+  </body>
+</html>

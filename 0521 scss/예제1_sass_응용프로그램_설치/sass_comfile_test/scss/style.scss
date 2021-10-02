@@ -1,0 +1,49 @@
+@charset "UTF-8";
+$bgColor: gray;
+$alinkColor: white;
+@mixin verticalAlign($pNum, $vNum){
+  top: $pNum;
+  transform: translateY($vNum);
+}
+
+*{ margin: 0; padding: 0; }
+ul,ol{ list-style: none; }
+a{ text-decoration: none; }
+
+body{
+  background: $bgColor;
+}
+
+/*
+컴파일 후 노출 되는 주석
+*/
+//컴파일 후 노출이 안됨
+
+#gnb{
+  overflow: hidden;
+  ul{
+    overflow: hidden;
+    float: right;
+    li{
+      position: relative;
+      float: left;
+      height: 30px;
+      &:after{
+        content: '';
+        position: absolute;
+        height: 50%;
+        left: 0;
+        width: 1px;
+        background: red;
+        @include verticalAlign(50%, -50%);
+      }
+      a{
+        color: $alinkColor;
+        display: inline-block;
+        padding: 0 10px;
+        line-height: 30px;
+        font-size: 16px;
+      }
+    }
+  }
+}

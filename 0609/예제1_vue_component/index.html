@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>vue js component</title>
+  <meta name="description" content="vue js component">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div id="app">
+    {{message}}
+    <header-component></header-component>
+    <main-component></main-component>
+    <inner-component></inner-component>
+    <footer-component></footer-component>
+  </div>
+
+  <div id="app2">
+    <header-component></header-component>
+    <!-- <main-component></main-component> 지역 컴포넌트라 에러 뜸-->
+    <!-- <inner-component></inner-component> -->
+    <footer-component></footer-component>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+  // global component(전역컴포넌트)
+  //global header component
+  Vue.component('header-component',{
+    template: '<header><h1><a href="#">logo</a></h1></header>'
+  });
+  //global footer component
+  Vue.component('footer-component',{
+    template: '<footer><h2><a href="#">footer-logo</a></h2></footer>'
+  });
+
+  let cpt = {
+    template: '<section>inner-area</section>'
+  }
+
+//첫번째 인스턴스
+  let app = new Vue({
+    el: '#app',
+    data: {
+      message: 'this is component area!'
+    },
+    components: {
+      'main-component': {
+        template:'<main>main-area</main>'
+      },
+      'inner-component': cpt
+    }
+  });
+
+//원래 app2 이런거 없음 지역변수랑 전역변수 구분해보라고 이번만 이렇게 씀
+  let app2 = new Vue({
+    el: '#app2',
+    components: {
+      'section-component': cpt
+    }
+  });
+  </script>
+</body>
+</html>

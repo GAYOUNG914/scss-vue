@@ -1,0 +1,77 @@
+//component
+.box{
+  display: flex;
+  .items{
+    box-sizing: border-box;
+    padding: 50px;
+    flex: 100%;
+    flex-shrink: 0;
+    font-size: $fontSizeMid;
+    .title{
+      font-size: $titleFontSizeMid;
+    }
+    img{
+      width: 100%;
+    }
+  }
+  &.items_2{// items가 두개 일때
+    .items{
+      flex: 50%;
+    }
+  }
+  &.expand{// 좌우 padding 삭제
+    .items{
+      padding: 50px 0;
+    }
+  }
+}
+
+//general button
+.gbtn{
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: $gbtnColor;
+  color: white;
+  border: 1px solid $borderColorPrimary;
+  &:hover{
+    background: white;
+    color: $gbtnColor;
+  }
+}
+
+//table
+table{
+  width: 100%;
+  table-layout: fixed;/*table의 너비를 고정할때 : 각각의 셀요소의 너비가 고정값이 있다면 늘어나거나 줄어들지않게 한다*/
+  border-collapse: collapse;
+  thead{
+    th{
+      background: $tableBg;
+      color: white;
+    }
+  }
+
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: $fontColorPrimary;
+    text-transform: uppercase;
+  }
+
+  td{
+    padding: 15px;
+    margin: 0;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: $fontColorPrimary;
+    border-bottom: 1px solid $borderColorPrimary;
+  }
+}

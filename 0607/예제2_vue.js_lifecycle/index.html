@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>vue js lifecycle</title>
+    <meta name="description" content="vue js lifecycle">
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      let app = new Vue({
+        el: '#app', //string타입
+        data: {
+          message: 'Hello Vue.js this is life cycle'
+        }, //객체타입
+        beforeCreate: function(){
+          console.log("before create")
+        },//함수형
+        created: function(){
+          console.log("created")
+          console.log(this.message)
+        },
+        mounted: function(){
+          console.log("mounted")
+          this.message = "new text!"
+        },
+        updated: function(){
+          console.log("updated")
+          this.message = "changed!"
+        }
+      })
+    </script>
+  </body>
+</html>

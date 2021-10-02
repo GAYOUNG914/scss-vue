@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>vue js v-for</title>
+  <meta name="description" content="vue js v-for">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <ul id="menu">
+        <li v-for="list in menuList">
+          <a v-bind:href="list.ahref">{{list.menu}}</a>
+        </li>
+      </ul>
+    </header>
+    <main v-bind:class="{off:isActive}">
+      <div class="container" v-bind:title="bgTitle"></div>
+      <button id="banner_btn" v-on:click="toggleElem">{{bannerToggleText}}</button>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <h3><a href="#">logo</a></h3>
+        <ul id="f_menu">
+          <li v-for="(list, index) in fMenuList">
+            <a v-if="index == 0" v-bind:href="list.ahref" v-bind:class="{on:active}">{{list.menu}}</a>
+            <a v-else v-bind:href="list.ahref">{{list.menu}}</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        active: false,
+        isActive: false,
+        bannerToggleText: 'close',
+        count: 0,
+        bgTitle: 'bg01',
+        menuList: [
+          {menu:'company',ahref:'http://naver.com'},
+          {menu:'product',ahref:'http://daum.net'},
+          {menu:'gallery',ahref:'http://facebook.com'},
+          {menu:'location',ahref:'http://instagram.com'}
+        ],
+        fMenuList: [
+          {menu:'company',ahref:'http://naver.com'},
+          {menu:'product',ahref:'http://daum.net'},
+          {menu:'gallery',ahref:'http://facebook.com'},
+          {menu:'notice',ahref:'http://instagram.com'},
+          {menu:'faq',ahref:'http://instagram.com'},
+          {menu:'location',ahref:'http://instagram.com'}
+        ],
+        bgChange: [
+          {bg: './assets/img/main_banner01.jpg',title: 'bg01'},
+          {bg: './assets/img/main_banner02.jpg',title: 'bg02'},
+          {bg: './assets/img/main_banner03.jpg',title: 'bg03'},
+          {bg: './assets/img/main_banner04.jpg',title: 'bg04'}
+        ]
+      },
+      methods: {
+        toggleElem: function(){
+          // console.log("this is v-on:click function!!")
+          // console.log(this.isActive+':::::'+!this.isActive)
+          this.isActive = !this.isActive;
+          /*click할때 버튼 텍스트 변경*/
+          if( this.bannerToggleText == 'close'){//close 버튼을 클릭할때
+            this.bannerToggleText = 'open';
+            if( this.count == this.bgChange.length - 1){
+              this.count = 0;
+            }else{
+              this.count++;
+              // this.count = this.count + 1
+            }
+          }else{//oepn 버튼을 클릭할때
+            this.bannerToggleText = 'close';
+            this.bgTitle = this.bgChange[this.count].title;
+            document.body.querySelector('.container').style.backgroundImage = "url('"+this.bgChange[this.count].bg+"')";
+            console.log(this.bgChange.length);
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

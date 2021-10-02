@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+//scss 파일 분화
+@import "var.scss"; // 공통 변수
+@import "initial.scss"; //css 초기화
+@import "layout.scss"; //공통 레이아웃

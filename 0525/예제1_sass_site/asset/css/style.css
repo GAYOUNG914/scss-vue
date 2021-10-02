@@ -1,0 +1,171 @@
+/*initial css*/
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #fff3c4;
+  color: #666666;
+}
+
+html, body, ul, li, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #b8944d;
+  transition: .5s;
+}
+
+a:hover {
+  color: #e3a936;
+}
+
+.box {
+  display: flex;
+}
+
+.box .items {
+  box-sizing: border-box;
+  padding: 50px;
+  flex: 100%;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+.box .items .title {
+  font-size: 26px;
+}
+
+.box .items img {
+  width: 100%;
+}
+
+.box.items_2 .items {
+  flex: 50%;
+}
+
+.box.expand .items {
+  padding: 50px 0;
+}
+
+.gbtn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 20px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #b8944d;
+  color: white;
+  border: 1px solid #b8944d;
+}
+
+.gbtn:hover {
+  background: white;
+  color: #b8944d;
+}
+
+#wrap {
+  width: 1320px;
+  margin: 0 auto;
+}
+
+#wrap #header {
+  position: relative;
+  height: 60px;
+}
+
+#wrap #header #top_logo {
+  float: left;
+}
+
+#wrap #header #top_logo a {
+  height: 60px;
+  line-height: 60px;
+}
+
+#wrap #header #top_nav {
+  position: relative;
+  height: 60px;
+  float: right;
+}
+
+#wrap #header #top_nav ul {
+  float: left;
+}
+
+#wrap #header #top_nav ul li {
+  position: relative;
+  float: left;
+  margin-left: 30px;
+}
+
+#wrap #header #top_nav ul li:first-child {
+  margin-left: 0;
+}
+
+#wrap #header #top_nav ul li a {
+  line-height: 60px;
+  height: 60px;
+}
+
+#wrap #header #top_nav ul li:hover .submenu {
+  visibility: visible;
+  opacity: 1;
+  top: 100%;
+}
+
+#wrap #header #top_nav ul li .submenu {
+  position: absolute;
+  border: 1px solid #b8944d;
+  visibility: hidden;
+  top: calc( 100% - 3px);
+  left: 0;
+  opacity: 0;
+  transition: .5s;
+}
+
+#wrap #header #top_nav ul li .submenu li {
+  width: 100%;
+  margin: 0;
+  background: white;
+  box-sizing: border-box;
+  padding: 0 10px;
+  min-width: 150px;
+  transition: .5s;
+}
+
+#wrap #header #top_nav ul li .submenu li a {
+  line-height: 40px;
+  height: 40px;
+}
+
+#wrap #header #top_nav ul li .submenu li:hover {
+  background: #b8944d;
+}
+
+#wrap #header #top_nav ul li .submenu li:hover a {
+  color: white;
+}
+
+#wrap #footer {
+  margin-top: 50px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  border-top: 1px solid #b8944d;
+  color: #b8944d;
+}
+
+.mainbanner {
+  height: 550px;
+  background: url("../../img/main_banner.jpg") no-repeat;
+  background-size: cover;
+}

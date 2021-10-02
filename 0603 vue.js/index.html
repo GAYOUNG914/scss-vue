@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue js</title>
+  <meta name="description" content="vue js">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    {{massage}}
+    <div class="weather">
+      <span>날씨 : </span>{{weather}}
+    </div>
+  </div>
+  <div id="box"></div>
+
+  <script type="text/javascript">
+    // let date = new Date();
+    document.getElementById('box').innerHTML = "hi!! javascript!!"
+    let app = new Vue({ //vue함수 불러오면 뷰 쓸 수 있음
+      el: '#app', //엘리먼트 #app을 지목해서 div태그 #app 안에있는 모든 엘리먼트는 vue로 컨트롤 가능
+      data: { //사용하는 변수들을 data안에 담음
+        massage: 'hello!!! vue js!!!',
+        weather: 'rain!!'
+      }
+    });
+  </script>
+</body>
+</html>

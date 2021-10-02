@@ -1,0 +1,13 @@
+/*initial css*/
+body {
+  background: black;
+}
+
+ul {
+  overflow: hidden;
+}
+
+ul li {
+  background: yellow;
+  float: left;
+}

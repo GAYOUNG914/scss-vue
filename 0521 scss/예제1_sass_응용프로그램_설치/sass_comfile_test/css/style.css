@@ -1,0 +1,21 @@
+@charset "UTF-8";
+* { margin: 0; padding: 0; }
+
+ul, ol { list-style: none; }
+
+a { text-decoration: none; }
+
+body { background: gray; }
+
+/*
+컴파일 후 노출 되는 주석
+*/
+#gnb { overflow: hidden; }
+
+#gnb ul { overflow: hidden; float: right; }
+
+#gnb ul li { position: relative; float: left; height: 30px; }
+
+#gnb ul li:after { content: ''; position: absolute; height: 50%; left: 0; width: 1px; background: red; top: 50%; transform: translateY(-50%); }
+
+#gnb ul li a { color: white; display: inline-block; padding: 0 10px; line-height: 30px; font-size: 16px; }
